@@ -1,27 +1,3 @@
-mutation PublishNotebook(
-    $gitURL: String!
-    $gitBranch: String!
-) {
-  publishNotebook(
-    input: {
-      gitURL: $gitURL
-      gitBranch: $gitBranch
-    }
-  ) {
-    ...NotebookFields
-  }
-}
-
-mutation UnpublishNotebook(
-  $notebookID: UUID!
-) {
-  unpublishNotebook(
-    input: {
-      notebookID: $notebookID
-    }
-  )
-}
-
 mutation UpdateNotebook(
   $notebookID: UUID!
   $gitURL: String!

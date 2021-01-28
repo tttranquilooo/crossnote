@@ -5,7 +5,6 @@ import * as qs from "qs";
 import { Router, Route, Switch } from "react-router-dom";
 import { browserHistory } from "./utilities/history";
 import { Home } from "./pages/Home";
-import { GitHubOAuthCallback } from "./components/GitHubOAuthCallback";
 import "./editor";
 import { HomeSection } from "./containers/crossnote";
 import { SettingsContainer } from "./containers/settings";
@@ -55,19 +54,6 @@ const App: FC = () => {
                   section={HomeSection.Notifications}
                   queryParams={{}}
                 ></Home>
-              )}
-            ></Route>
-            <Route
-              exact={true}
-              path={`/github_oauth_callback`}
-              render={(props) => (
-                <GitHubOAuthCallback
-                  code={
-                    qs.parse(props.location.search.replace(/^\?/, ""))[
-                      "code"
-                    ] || ""
-                  }
-                ></GitHubOAuthCallback>
               )}
             ></Route>
             <Route

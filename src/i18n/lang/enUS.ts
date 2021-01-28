@@ -124,8 +124,6 @@ export const enUS = {
     "general/please-sign-in-first": "Please sign in first",
     "general/Languages": "Languages",
     "general/track": "Track",
-    "general/Publish": "Publish",
-    "general/Unpublish": "Unpublish",
     "general/Open": "Open",
     "general/Download": "Download",
     "general/Configure": "Configure",
@@ -136,7 +134,6 @@ export const enUS = {
     "general/add-a-note": "Add a note",
     "general/add-an-attachment": "Add an attachment",
     "general/configure-the-notebook": "Configure the notebook",
-    "general/publish-your-notebook": "Publish your notebook",
     "general/notebook-name": "Notebook name",
     "general/git-repository": "git repository",
     "general/optional": "optional",
@@ -207,9 +204,6 @@ export const enUS = {
     "error/failed-to-create-widget": "Failed to create widget",
     "error/failed-to-load-widget": "Failed to load widget",
     "error/failed-to-update-the-notebook": "Failed to update the notebook",
-    "error/failed-to-unpublish-the-notebook":
-      "Failed to unpublish the notebook",
-    "error/failed-to-publish-notebook": "Failed to publish the notebook",
 
     // Success
     "success/notebook-uploaded": "Notebook uploaded",
@@ -448,17 +442,6 @@ export const enUS = {
     "notification/bookmarked-your-note": "Bookmarked your note",
     "notification/view-more-notifications": "View more notifications",
 
-    // GitHubOAuthCallback
-    "github-oauth/wait": "Please wait ...",
-    "github-oauth/link-with-github-account-failure":
-      "Failed to link with GitHub account",
-    "github-oauth/sign-in-with-github-account-failure":
-      "Failed to sign in with GitHub account",
-    "github-oauth/first-time-sign-in":
-      "It seems to be the first time you sign in with GitHub account",
-    "github-oauth/first-time-sign-in-small":
-      "Please finish the registeration below",
-
     // Widgets
     "widget/autoplay": "autoplay",
     "widget/controls": "controls",
@@ -576,13 +559,7 @@ export const enUS = {
       "1) Press the 'Share' button",
     "react-ios-pwa-prompt/copy-add-home-button-label":
       "2) Press 'Add to Home Screen'",
-
-    // Publish notebook
-    "publish-notebook/disclaimer-1":
-      "We currently only support publishing the notebook from a public repository on GitHub, GitLab, Gitea, or Gitea. We only collect README.md file data.",
-    "publish-notebook/disclaimer-2":
-      "Please declare the ownership of your notebook by adding the following front-matter to README.md in remote repository:",
-
+      
     // git
     "git/status/ignored": "ignored",
     "git/status/unmodified": "unmodified",

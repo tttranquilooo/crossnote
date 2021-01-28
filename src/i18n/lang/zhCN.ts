@@ -124,8 +124,6 @@ export const zhCN = {
     "general/please-sign-in-first": "请先登录",
     "general/Languages": "语言",
     "general/track": "跟踪",
-    "general/Publish": "发布",
-    "general/Unpublish": "取消发布",
     "general/Open": "打开",
     "general/Download": "下载",
     "general/Configure": "配置",
@@ -136,7 +134,6 @@ export const zhCN = {
     "general/add-a-note": "添加一个笔记",
     "general/add-an-attachment": "添加一个附件",
     "general/configure-the-notebook": "设置笔记本",
-    "general/publish-your-notebook": "发布你的笔记本",
     "general/notebook-name": "笔记本名称",
     "general/git-repository": "git 仓库",
     "general/optional": "可选",
@@ -204,8 +201,6 @@ export const zhCN = {
     "error/failed-to-create-widget": "创建挂件失败",
     "error/failed-to-load-widget": "读取挂件失败",
     "error/failed-to-update-the-notebook": "更新笔记本失败",
-    "error/failed-to-unpublish-the-notebook": "取消发布笔记本失败",
-    "error/failed-to-publish-notebook": "发布笔记本失败",
 
     // Success
     "success/notebook-uploaded": "笔记本已上传",
@@ -436,14 +431,6 @@ export const zhCN = {
     "notification/bookmarked-your-note": "收藏了你的笔记",
     "notification/view-more-notifications": "查看更多的消息",
 
-    // GitHubOAuthCallback
-    "github-oauth/wait": "请稍等 ...",
-    "github-oauth/link-with-github-account-failure": "无法连接到 GitHub 账号",
-    "github-oauth/sign-in-with-github-account-failure":
-      "使用 GitHub 账号登录失败",
-    "github-oauth/first-time-sign-in": "看上去这是你第一次使用 GitHub 账号登录",
-    "github-oauth/first-time-sign-in-small": "请完成下方的注册",
-
     // Widgets
     "widget/autoplay": "自动播放",
     "widget/controls": "控制器",
@@ -550,12 +537,6 @@ export const zhCN = {
       "这个网站拥有软件功能。将它添加到你的主屏幕来开启全屏以及离线使用功能。",
     "react-ios-pwa-prompt/copy-share-button-label": "1) 点击 '分享' 按钮",
     "react-ios-pwa-prompt/copy-add-home-button-label": "2) 点击 '添加到主屏幕'",
-
-    // Publish notebook
-    "publish-notebook/disclaimer-1":
-      "我们目前仅支持从 GitHub、GitLab、Gitea 或码云的公共仓库发布笔记本。我们只收集 README.md 文件数据。",
-    "publish-notebook/disclaimer-2":
-      "请通过在远程仓库中向 README.md 添加以下 front-matter 来声明笔记本的所有权：",
 
     // git
     "git/status/ignored": "已忽略",

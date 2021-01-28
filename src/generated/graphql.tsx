@@ -21,17 +21,6 @@ export interface NotificationEventCommentWidgetMessagePosting  extends Notificat
   message: CommentWidgetMessage;
 }
 
-export interface LinkWithGitHubAccount {
-  code: Scalars['String'];
-}
-
-export interface GitHubUser {
-   __typename?: 'GitHubUser';
-  login: Scalars['String'];
-  avatar: Scalars['String'];
-  email: Scalars['String'];
-}
-
 export interface WidgetInstance {
   type: WidgetType;
 }
@@ -42,10 +31,6 @@ export interface AuthReturn {
   token: Scalars['String'];
   /** User */
   user: User;
-}
-
-export interface SendEmailVerificationCode {
-  email: Scalars['String'];
 }
 
 export interface UnsubscribeFromCommentWidget {
@@ -73,12 +58,6 @@ export interface NotificationConnection {
   edges: Array<NotificationEdge>;
 }
 
-export interface ResetPassword {
-  email: Scalars['String'];
-  verificationCode: Scalars['String'];
-  password: Scalars['String'];
-}
-
 export interface UpdateCommentWidgetMessage {
   messageID: Scalars['UUID'];
   markdown: Scalars['String'];
@@ -97,12 +76,6 @@ export interface UserWidget {
    __typename?: 'UserWidget';
   type: WidgetType;
   count: Scalars['Int'];
-}
-
-export interface SignUpWithGitHubAccount {
-  username: Scalars['String'];
-  email: Scalars['String'];
-  accessToken: Scalars['String'];
 }
 
 export interface Query {
@@ -136,11 +109,6 @@ export interface QueryUserArgs {
 
 export enum WidgetType {
   Comment = 'COMMENT'
-}
-
-export interface PublishNotebook {
-  gitURL: Scalars['String'];
-  gitBranch: Scalars['String'];
 }
 
 export interface PageInfo {
@@ -209,14 +177,6 @@ export interface SetUserInfo {
   location: Scalars['String'];
   language: Scalars['String'];
   editorCursorColor: Scalars['String'];
-}
-
-export interface FollowUser {
-  userID: Scalars['UUID'];
-}
-
-export interface SignInWithGitHubAccount {
-  code: Scalars['String'];
 }
 
 export interface UpdateNotebook {
@@ -363,11 +323,6 @@ export interface RemoveReactionFromCommentWidgetMessage {
   reaction: Scalars['String'];
 }
 
-export interface UnpublishNotebook {
-  notebookID: Scalars['UUID'];
-}
-
-
 export interface CommentWidgetInstance  extends WidgetInstance {
    __typename?: 'CommentWidgetInstance';
   type: WidgetType;
@@ -405,12 +360,6 @@ export interface Notebook {
   isStarred: Scalars['Boolean'];
 }
 
-
-export interface VerifyEmail {
-  email: Scalars['String'];
-  verificationCode: Scalars['String'];
-}
-
 export interface User {
    __typename?: 'User';
   id: Scalars['UUID'];
@@ -443,7 +392,6 @@ export interface User {
   /** Get user starred notebooks */
   starredNotebooks: NotebookConnection;
   editorCursorColor: Maybe<Scalars['String']>;
-  githubUser: Maybe<GitHubUser>;
 }
 
 
@@ -512,15 +460,6 @@ export interface Mutation {
   deleteNotification: Scalars['Boolean'];
   deleteAllNotifications: Scalars['Boolean'];
   setUserInfo: User;
-  followUser: Scalars['Boolean'];
-  unfollowUser: Scalars['Boolean'];
-  sendEmailVerificationCode: Scalars['Boolean'];
-  resetPassword: Scalars['Boolean'];
-  verifyEmail: Scalars['Boolean'];
-  linkWithGitHubAccount: Scalars['Boolean'];
-  unlinkGitHubAccount: Scalars['Boolean'];
-  publishNotebook: Notebook;
-  unpublishNotebook: Scalars['Boolean'];
   updateNotebook: Notebook;
   starNotebook: Scalars['Boolean'];
   unstarNotebook: Scalars['Boolean'];
@@ -547,17 +486,6 @@ export interface MutationSignInArgs {
   input: SignInInput;
 }
 
-
-export interface MutationSignUpWithGitHubAccountArgs {
-  input: SignUpWithGitHubAccount;
-}
-
-
-export interface MutationSignInWithGitHubAccountArgs {
-  input: SignInWithGitHubAccount;
-}
-
-
 export interface MutationDeleteNotificationArgs {
   input: DeleteNotification;
 }
@@ -566,47 +494,6 @@ export interface MutationDeleteNotificationArgs {
 export interface MutationSetUserInfoArgs {
   input: SetUserInfo;
 }
-
-
-export interface MutationFollowUserArgs {
-  input: FollowUser;
-}
-
-
-export interface MutationUnfollowUserArgs {
-  input: UnfollowUser;
-}
-
-
-export interface MutationSendEmailVerificationCodeArgs {
-  input: Maybe<SendEmailVerificationCode>;
-}
-
-
-export interface MutationResetPasswordArgs {
-  input: Maybe<ResetPassword>;
-}
-
-
-export interface MutationVerifyEmailArgs {
-  input: Maybe<VerifyEmail>;
-}
-
-
-export interface MutationLinkWithGitHubAccountArgs {
-  input: Maybe<LinkWithGitHubAccount>;
-}
-
-
-export interface MutationPublishNotebookArgs {
-  input: PublishNotebook;
-}
-
-
-export interface MutationUnpublishNotebookArgs {
-  input: UnpublishNotebook;
-}
-
 
 export interface MutationUpdateNotebookArgs {
   input: UpdateNotebook;
@@ -684,112 +571,6 @@ export interface UnfollowUser {
 export interface UnstarNotebook {
   notebookID: Scalars['UUID'];
 }
-
-export type SignUpMutationVariables = {
-  username: Scalars['String'];
-  email: Scalars['String'];
-  password: Scalars['String'];
-};
-
-
-export type SignUpMutation = (
-  { __typename?: 'Mutation' }
-  & { signUp: (
-    { __typename?: 'AuthReturn' }
-    & Pick<AuthReturn, 'token'>
-    & { user: (
-      { __typename?: 'User' }
-      & Pick<User, 'id'>
-    ) }
-  ) }
-);
-
-export type SignInMutationVariables = {
-  email: Scalars['String'];
-  password: Scalars['String'];
-};
-
-
-export type SignInMutation = (
-  { __typename?: 'Mutation' }
-  & { signIn: (
-    { __typename?: 'AuthReturn' }
-    & Pick<AuthReturn, 'token'>
-    & { user: (
-      { __typename?: 'User' }
-      & Pick<User, 'id'>
-    ) }
-  ) }
-);
-
-export type SignUpWithGitHubAccountMutationVariables = {
-  username: Scalars['String'];
-  email: Scalars['String'];
-  accessToken: Scalars['String'];
-};
-
-
-export type SignUpWithGitHubAccountMutation = (
-  { __typename?: 'Mutation' }
-  & { signUpWithGitHubAccount: (
-    { __typename?: 'AuthReturn' }
-    & Pick<AuthReturn, 'token'>
-    & { user: (
-      { __typename?: 'User' }
-      & Pick<User, 'id'>
-    ) }
-  ) }
-);
-
-export type SignInWithGitHubAccountMutationVariables = {
-  code: Scalars['String'];
-};
-
-
-export type SignInWithGitHubAccountMutation = (
-  { __typename?: 'Mutation' }
-  & { signInWithGitHubAccount: (
-    { __typename?: 'AuthReturn' }
-    & Pick<AuthReturn, 'token'>
-    & { user: (
-      { __typename?: 'User' }
-      & Pick<User, 'id' | 'username' | 'email'>
-    ) }
-  ) }
-);
-
-export type SendEmailVerificationCodeMutationVariables = {
-  email: Scalars['String'];
-};
-
-
-export type SendEmailVerificationCodeMutation = (
-  { __typename?: 'Mutation' }
-  & Pick<Mutation, 'sendEmailVerificationCode'>
-);
-
-export type ResetPasswordMutationVariables = {
-  email: Scalars['String'];
-  verificationCode: Scalars['String'];
-  password: Scalars['String'];
-};
-
-
-export type ResetPasswordMutation = (
-  { __typename?: 'Mutation' }
-  & Pick<Mutation, 'resetPassword'>
-);
-
-export type VerifyEmailMutationVariables = {
-  email: Scalars['String'];
-  verificationCode: Scalars['String'];
-};
-
-
-export type VerifyEmailMutation = (
-  { __typename?: 'Mutation' }
-  & Pick<Mutation, 'verifyEmail'>
-);
 
 export type CreateCommentWidgetMutationVariables = {
   description: Scalars['String'];
@@ -896,48 +677,6 @@ export type UnsubscribeFromCommentWidgetMutationVariables = {
 export type UnsubscribeFromCommentWidgetMutation = (
   { __typename?: 'Mutation' }
   & Pick<Mutation, 'unsubscribeFromCommentWidget'>
-);
-
-export type LinkWithGitHubAccountMutationVariables = {
-  code: Scalars['String'];
-};
-
-
-export type LinkWithGitHubAccountMutation = (
-  { __typename?: 'Mutation' }
-  & Pick<Mutation, 'linkWithGitHubAccount'>
-);
-
-export type UnlinkGitHubAccountMutationVariables = {};
-
-
-export type UnlinkGitHubAccountMutation = (
-  { __typename?: 'Mutation' }
-  & Pick<Mutation, 'unlinkGitHubAccount'>
-);
-
-export type PublishNotebookMutationVariables = {
-  gitURL: Scalars['String'];
-  gitBranch: Scalars['String'];
-};
-
-
-export type PublishNotebookMutation = (
-  { __typename?: 'Mutation' }
-  & { publishNotebook: (
-    { __typename?: 'Notebook' }
-    & NotebookFieldsFragment
-  ) }
-);
-
-export type UnpublishNotebookMutationVariables = {
-  notebookID: Scalars['UUID'];
-};
-
-
-export type UnpublishNotebookMutation = (
-  { __typename?: 'Mutation' }
-  & Pick<Mutation, 'unpublishNotebook'>
 );
 
 export type UpdateNotebookMutationVariables = {
@@ -1121,20 +860,6 @@ export type CommentWidgetMessagesQuery = (
         ) }
       ) }
     ) }
-  ) }
-);
-
-export type GitHubUserQueryVariables = {};
-
-
-export type GitHubUserQuery = (
-  { __typename?: 'Query' }
-  & { viewer: (
-    { __typename?: 'User' }
-    & { githubUser: Maybe<(
-      { __typename?: 'GitHubUser' }
-      & Pick<GitHubUser, 'login' | 'avatar' | 'email'>
-    )> }
   ) }
 );
 
@@ -1413,115 +1138,6 @@ export const SignUpDocument = gql`
 }
     `;
 
-export const SignUpComponent = (props: Omit<Urql.MutationProps<SignUpMutation, SignUpMutationVariables>, 'query'> & { variables?: SignUpMutationVariables }) => (
-  <Urql.Mutation {...props} query={SignUpDocument} />
-);
-
-
-export function useSignUpMutation() {
-  return Urql.useMutation<SignUpMutation, SignUpMutationVariables>(SignUpDocument);
-};
-export const SignInDocument = gql`
-    mutation SignIn($email: String!, $password: String!) {
-  signIn(input: {email: $email, password: $password}) {
-    token
-    user {
-      id
-    }
-  }
-}
-    `;
-
-export const SignInComponent = (props: Omit<Urql.MutationProps<SignInMutation, SignInMutationVariables>, 'query'> & { variables?: SignInMutationVariables }) => (
-  <Urql.Mutation {...props} query={SignInDocument} />
-);
-
-
-export function useSignInMutation() {
-  return Urql.useMutation<SignInMutation, SignInMutationVariables>(SignInDocument);
-};
-export const SignUpWithGitHubAccountDocument = gql`
-    mutation SignUpWithGitHubAccount($username: String!, $email: String!, $accessToken: String!) {
-  signUpWithGitHubAccount(input: {username: $username, email: $email, accessToken: $accessToken}) {
-    token
-    user {
-      id
-    }
-  }
-}
-    `;
-
-export const SignUpWithGitHubAccountComponent = (props: Omit<Urql.MutationProps<SignUpWithGitHubAccountMutation, SignUpWithGitHubAccountMutationVariables>, 'query'> & { variables?: SignUpWithGitHubAccountMutationVariables }) => (
-  <Urql.Mutation {...props} query={SignUpWithGitHubAccountDocument} />
-);
-
-
-export function useSignUpWithGitHubAccountMutation() {
-  return Urql.useMutation<SignUpWithGitHubAccountMutation, SignUpWithGitHubAccountMutationVariables>(SignUpWithGitHubAccountDocument);
-};
-export const SignInWithGitHubAccountDocument = gql`
-    mutation SignInWithGitHubAccount($code: String!) {
-  signInWithGitHubAccount(input: {code: $code}) {
-    token
-    user {
-      id
-      username
-      email
-    }
-  }
-}
-    `;
-
-export const SignInWithGitHubAccountComponent = (props: Omit<Urql.MutationProps<SignInWithGitHubAccountMutation, SignInWithGitHubAccountMutationVariables>, 'query'> & { variables?: SignInWithGitHubAccountMutationVariables }) => (
-  <Urql.Mutation {...props} query={SignInWithGitHubAccountDocument} />
-);
-
-
-export function useSignInWithGitHubAccountMutation() {
-  return Urql.useMutation<SignInWithGitHubAccountMutation, SignInWithGitHubAccountMutationVariables>(SignInWithGitHubAccountDocument);
-};
-export const SendEmailVerificationCodeDocument = gql`
-    mutation SendEmailVerificationCode($email: String!) {
-  sendEmailVerificationCode(input: {email: $email})
-}
-    `;
-
-export const SendEmailVerificationCodeComponent = (props: Omit<Urql.MutationProps<SendEmailVerificationCodeMutation, SendEmailVerificationCodeMutationVariables>, 'query'> & { variables?: SendEmailVerificationCodeMutationVariables }) => (
-  <Urql.Mutation {...props} query={SendEmailVerificationCodeDocument} />
-);
-
-
-export function useSendEmailVerificationCodeMutation() {
-  return Urql.useMutation<SendEmailVerificationCodeMutation, SendEmailVerificationCodeMutationVariables>(SendEmailVerificationCodeDocument);
-};
-export const ResetPasswordDocument = gql`
-    mutation ResetPassword($email: String!, $verificationCode: String!, $password: String!) {
-  resetPassword(input: {email: $email, verificationCode: $verificationCode, password: $password})
-}
-    `;
-
-export const ResetPasswordComponent = (props: Omit<Urql.MutationProps<ResetPasswordMutation, ResetPasswordMutationVariables>, 'query'> & { variables?: ResetPasswordMutationVariables }) => (
-  <Urql.Mutation {...props} query={ResetPasswordDocument} />
-);
-
-
-export function useResetPasswordMutation() {
-  return Urql.useMutation<ResetPasswordMutation, ResetPasswordMutationVariables>(ResetPasswordDocument);
-};
-export const VerifyEmailDocument = gql`
-    mutation VerifyEmail($email: String!, $verificationCode: String!) {
-  verifyEmail(input: {email: $email, verificationCode: $verificationCode})
-}
-    `;
-
-export const VerifyEmailComponent = (props: Omit<Urql.MutationProps<VerifyEmailMutation, VerifyEmailMutationVariables>, 'query'> & { variables?: VerifyEmailMutationVariables }) => (
-  <Urql.Mutation {...props} query={VerifyEmailDocument} />
-);
-
-
-export function useVerifyEmailMutation() {
-  return Urql.useMutation<VerifyEmailMutation, VerifyEmailMutationVariables>(VerifyEmailDocument);
-};
 export const CreateCommentWidgetDocument = gql`
     mutation CreateCommentWidget($description: String!, $source: String!) {
   createWidget(input: {description: $description, source: $source, type: COMMENT}) {
@@ -1660,58 +1276,6 @@ export const LinkWithGitHubAccountDocument = gql`
 }
     `;
 
-export const LinkWithGitHubAccountComponent = (props: Omit<Urql.MutationProps<LinkWithGitHubAccountMutation, LinkWithGitHubAccountMutationVariables>, 'query'> & { variables?: LinkWithGitHubAccountMutationVariables }) => (
-  <Urql.Mutation {...props} query={LinkWithGitHubAccountDocument} />
-);
-
-
-export function useLinkWithGitHubAccountMutation() {
-  return Urql.useMutation<LinkWithGitHubAccountMutation, LinkWithGitHubAccountMutationVariables>(LinkWithGitHubAccountDocument);
-};
-export const UnlinkGitHubAccountDocument = gql`
-    mutation UnlinkGitHubAccount {
-  unlinkGitHubAccount
-}
-    `;
-
-export const UnlinkGitHubAccountComponent = (props: Omit<Urql.MutationProps<UnlinkGitHubAccountMutation, UnlinkGitHubAccountMutationVariables>, 'query'> & { variables?: UnlinkGitHubAccountMutationVariables }) => (
-  <Urql.Mutation {...props} query={UnlinkGitHubAccountDocument} />
-);
-
-
-export function useUnlinkGitHubAccountMutation() {
-  return Urql.useMutation<UnlinkGitHubAccountMutation, UnlinkGitHubAccountMutationVariables>(UnlinkGitHubAccountDocument);
-};
-export const PublishNotebookDocument = gql`
-    mutation PublishNotebook($gitURL: String!, $gitBranch: String!) {
-  publishNotebook(input: {gitURL: $gitURL, gitBranch: $gitBranch}) {
-    ...NotebookFields
-  }
-}
-    ${NotebookFieldsFragmentDoc}`;
-
-export const PublishNotebookComponent = (props: Omit<Urql.MutationProps<PublishNotebookMutation, PublishNotebookMutationVariables>, 'query'> & { variables?: PublishNotebookMutationVariables }) => (
-  <Urql.Mutation {...props} query={PublishNotebookDocument} />
-);
-
-
-export function usePublishNotebookMutation() {
-  return Urql.useMutation<PublishNotebookMutation, PublishNotebookMutationVariables>(PublishNotebookDocument);
-};
-export const UnpublishNotebookDocument = gql`
-    mutation UnpublishNotebook($notebookID: UUID!) {
-  unpublishNotebook(input: {notebookID: $notebookID})
-}
-    `;
-
-export const UnpublishNotebookComponent = (props: Omit<Urql.MutationProps<UnpublishNotebookMutation, UnpublishNotebookMutationVariables>, 'query'> & { variables?: UnpublishNotebookMutationVariables }) => (
-  <Urql.Mutation {...props} query={UnpublishNotebookDocument} />
-);
-
-
-export function useUnpublishNotebookMutation() {
-  return Urql.useMutation<UnpublishNotebookMutation, UnpublishNotebookMutationVariables>(UnpublishNotebookDocument);
-};
 export const UpdateNotebookDocument = gql`
     mutation UpdateNotebook($notebookID: UUID!, $gitURL: String!, $gitBranch: String!) {
   updateNotebook(input: {notebookID: $notebookID, gitURL: $gitURL, gitBranch: $gitBranch}) {
@@ -1882,14 +1446,6 @@ export const GitHubUserDocument = gql`
 }
     `;
 
-export const GitHubUserComponent = (props: Omit<Urql.QueryProps<GitHubUserQuery, GitHubUserQueryVariables>, 'query'> & { variables?: GitHubUserQueryVariables }) => (
-  <Urql.Query {...props} query={GitHubUserDocument} />
-);
-
-
-export function useGitHubUserQuery(options: Omit<Urql.UseQueryArgs<GitHubUserQueryVariables>, 'query'> = {}) {
-  return Urql.useQuery<GitHubUserQuery>({ query: GitHubUserDocument, ...options });
-};
 export const NotebooksDocument = gql`
     query Notebooks($query: String = "", $orderBy: NotebookOrderBy = TOTAL_STARS_COUNT, $page: Int = 0, $perPage: Int = 10) {
   notebooks(query: $query, orderBy: $orderBy, page: $page, perPage: $perPage) {

@@ -39,31 +39,6 @@ export function getPeerJSEndpoint(): PeerJSOption {
   }
 }
 
-export function getGitHubOAuthClientID() {
-  if (process.env.NODE_ENV === "production") {
-    return "3dd81bb2c212b7749761";
-  } else {
-    return "c7477b9aa512785936e0";
-  }
-}
-
-export function getGitHubOAuthCallbackURL() {
-  if (process.env.NODE_ENV === "production") {
-    return "https://crossnote.app/github_oauth_callback";
-  } else {
-    return `http://${window.location.host}/github_oauth_callback`;
-  }
-}
-
-export function startGitHubOAuth() {
-  window.open(
-    `https://github.com/login/oauth/authorize?client_id=${getGitHubOAuthClientID()}&redirect_uri=${encodeURIComponent(
-      getGitHubOAuthCallbackURL(),
-    )}`,
-    "_self",
-  );
-}
-
 export const graphqlFetchContext = {
   fetchOptions: {
     headers: {

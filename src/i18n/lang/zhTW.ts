@@ -124,8 +124,6 @@ export const zhTW = {
     "general/please-sign-in-first": "請先登錄",
     "general/Languages": "語言",
     "general/track": "跟蹤",
-    "general/Publish": "發布",
-    "general/Unpublish": "取消發佈",
     "general/Open": "開啟",
     "general/Download": "下載",
     "general/Configure": "設定",
@@ -136,7 +134,6 @@ export const zhTW = {
     "general/add-a-note": "添加一个筆記",
     "general/add-an-attachment": "添加一个附件",
     "general/configure-the-notebook": "設置筆記本",
-    "general/publish-your-notebook": "發佈你的筆記本",
     "general/notebook-name": "筆記本名稱",
     "general/git-repository": "git 倉庫",
     "general/optional": "可選",
@@ -204,8 +201,6 @@ export const zhTW = {
     "error/failed-to-create-widget": "創建掛件失敗",
     "error/failed-to-load-widget": "讀取掛件失敗",
     "error/failed-to-update-the-notebook": "更新筆記本失敗",
-    "error/failed-to-unpublish-the-notebook": "取消發佈筆記本失敗",
-    "error/failed-to-publish-notebook": "發佈筆記本失敗",
 
     // Success
     "success/notebook-uploaded": "筆記本已上傳",
@@ -436,14 +431,6 @@ export const zhTW = {
     "notification/bookmarked-your-note": "收藏了你的筆記",
     "notification/view-more-notifications": "查看更多的消息",
 
-    // GitHubOAuthCallback
-    "github-oauth/wait": "請稍等 ...",
-    "github-oauth/link-with-github-account-failure": "無法連接到 GitHub 賬號",
-    "github-oauth/sign-in-with-github-account-failure":
-      "使用 GitHub 賬號登錄失敗",
-    "github-oauth/first-time-sign-in": "看上去這是你第一次使用 GitHub 賬號登錄",
-    "github-oauth/first-time-sign-in-small": "請完成下方的註冊",
-
     // Widgets
     "widget/autoplay": "自動播放",
     "widget/controls": "控制器",
@@ -550,12 +537,6 @@ export const zhTW = {
     "react-ios-pwa-prompt/copy-share-button-label": "1) 按下「共用」按鈕",
     "react-ios-pwa-prompt/copy-add-home-button-label":
       "2) 按下「添加到主螢幕」",
-
-    // Publish notebook
-    "publish-notebook/disclaimer-1":
-      "我們目前僅支援從 GitHub、GitLab、Gitea 或碼雲的公共倉庫發佈筆記本。 我們只收集 README.md 文件數據。",
-    "publish-notebook/disclaimer-2":
-      "請通過在遠端倉庫中向 README.md 添加以下 front-matter 來聲明筆記本的擁有權:",
 
     // git
     "git/status/ignored": "已忽略",

@@ -124,8 +124,6 @@ export const jaJP = {
     "general/please-sign-in-first": "最初にサインインしてください",
     "general/Languages": "言語",
     "general/track": "たどる",
-    "general/Publish": "公開",
-    "general/Unpublish": "非公開",
     "general/Open": "開く",
     "general/Download": "ダウンロード",
     "general/Configure": "構成",
@@ -136,7 +134,6 @@ export const jaJP = {
     "general/add-a-note": "ノートを追加する",
     "general/add-an-attachment": "添付を追加する",
     "general/configure-the-notebook": "ノートブックを構成する",
-    "general/publish-your-notebook": "ノートブックを発行する",
     "general/notebook-name": "ノートブック名",
     "general/git-repository": "git リポジトリ",
     "general/optional": "オプション",
@@ -209,9 +206,6 @@ export const jaJP = {
     "error/failed-to-create-widget": "ウィジェットの作成に失敗しました",
     "error/failed-to-load-widget": "ウィジェットを読み込めませんでした",
     "error/failed-to-update-the-notebook": "ノートブックの更新に失敗しました",
-    "error/failed-to-unpublish-the-notebook":
-      "ノートブックの公開を取り消すことができませんでした",
-    "error/failed-to-publish-notebook": "ノートブックを発行できませんでした",
 
     // Success
     "success/notebook-uploaded": "ノートブックがアップロードされます",
@@ -464,16 +458,6 @@ export const jaJP = {
     "notification/bookmarked-your-note": "あなたのノートをブックマーク",
     "notification/view-more-notifications": "その他の通知を表示する",
 
-    // GitHubOAuthCallback
-    "github-oauth/wait": "お待ちください ...",
-    "github-oauth/link-with-github-account-failure":
-      "GitHub アカウントに接続できません",
-    "github-oauth/sign-in-with-github-account-failure":
-      "GitHub アカウントでのログインに失敗しました",
-    "github-oauth/first-time-sign-in":
-      "これは、GitHub アカウントで初めてサインインするようです",
-    "github-oauth/first-time-sign-in-small": "以下の登録を完了してください",
-
     // Widgets
     "widget/autoplay": "自動再生",
     "widget/controls": "コントローラー",
@@ -593,12 +577,6 @@ export const jaJP = {
       "1) [共有] ボタンを押します。",
     "react-ios-pwa-prompt/copy-add-home-button-label":
       "2) 「ホーム画面に追加」を押します。",
-
-    // Publish notebook
-    "publish-notebook/disclaimer-1":
-      "現在、GitHub、GitLab、Gitea、またはコードクラウドのパブリックウェアハウスからノートブックをリリースする場合のみサポートしています。 README.md ファイル データのみを収集します。",
-    "publish-notebook/disclaimer-2":
-      "リモート ウェアハウスで次の front-matter を README.md に追加して、ノートブックの所有権を主張します。",
 
     // git
     "git/status/ignored": "無視",

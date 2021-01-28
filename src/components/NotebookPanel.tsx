@@ -32,7 +32,6 @@ import { useTranslation } from "react-i18next";
 import { renderPreview } from "vickymd/preview";
 import { CrossnoteContainer } from "../containers/crossnote";
 import AddNotebookDialog from "./AddNotebookDialog";
-import ConfigurePublishedNotebookDialog from "./ConfigurePublishedNotebookDialog";
 import { resolveNotebookFilePath } from "../utilities/image";
 import { browserHistory } from "../utilities/history";
 import { matter } from "../utilities/markdown";
@@ -447,11 +446,6 @@ export function NotebookPanel(props: Props) {
         notebookName={matter(notebook.markdown).data?.notebook?.name || ""}
         canCancel={true}
       ></AddNotebookDialog>
-      <ConfigurePublishedNotebookDialog
-        notebook={notebook}
-        open={configureNotebookDialogOpen}
-        onClose={() => setConfigureNotebookDialogOpen(false)}
-      ></ConfigurePublishedNotebookDialog>
     </Box>
   );
 }

@@ -52,7 +52,6 @@ import { Settings } from "../components/Settings";
 import { CloudContainer } from "../containers/cloud";
 import { globalContainers } from "../containers/global";
 import { SettingsContainer } from "../containers/settings";
-import { AuthDialog } from "../components/AuthDialog";
 import { Notifications } from "../components/Notifications";
 import { NotebookPanel } from "../components/NotebookPanel";
 import { PrivacyPolicy } from "./Privacy";
@@ -504,10 +503,6 @@ export function Home(props: Props) {
         gitURL={addNotebookRepo}
         gitBranch={addNotebookBranch}
       ></AddNotebookDialog>
-      <AuthDialog
-        open={cloudContainer.authDialogOpen}
-        onClose={() => cloudContainer.setAuthDialogOpen(false)}
-      ></AuthDialog>
       <LanguageSelectorDialog></LanguageSelectorDialog>
     </Box>
   );
