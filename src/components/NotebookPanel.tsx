@@ -180,9 +180,6 @@ export function NotebookPanel(props: Props) {
 
   const starOrUnstarTheNotebook = useCallback(() => {
     if (!notebook) {
-      return;
-    }
-    if (!cloudContainer.loggedIn) {
       cloudContainer.setAuthDialogOpen(true);
       return;
     }
