@@ -14,7 +14,7 @@ export const OneDay = 1000 * 60 * 60 * 24;
 
 export function getGraphQLEndpoint() {
   if (process.env.NODE_ENV === "production") {
-    return `https://crossnote.app/api/graphql`;
+    return `https://tttranquilooo.github.io/crossnote/api/graphql`;
   } else {
     return `http://${window.location.hostname}:9999/graphql`;
   }
@@ -23,7 +23,7 @@ export function getGraphQLEndpoint() {
 export function getPeerJSEndpoint(): PeerJSOption {
   if (process.env.NODE_ENV === "production") {
     return {
-      host: `crossnote.app`,
+      host: `github.io`,
       path: "/peer",
       secure: true,
       // config: { iceServers: [{ url: "stun:stun.l.google.com:19302" }] }

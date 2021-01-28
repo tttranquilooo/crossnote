@@ -20,7 +20,7 @@ function useSettingsContainer(initialState: InitialState) {
     localStorage.getItem("settings/authorName") || "Anonymous",
   );
   const [authorEmail, setAuthorEmail] = useState<string>(
-    localStorage.getItem("settings/authorEmail") || "anonymous@crossnote.app",
+    localStorage.getItem("settings/authorEmail") || "anonymous@example.com",
   );
   const [theme, setTheme] = useState<CrossnoteTheme>(
     themeManager.getTheme(localStorage.getItem("settings/theme")) ||

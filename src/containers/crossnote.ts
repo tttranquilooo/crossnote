@@ -816,7 +816,7 @@ function useCrossnoteContainer(initialState: InitialState) {
           `# Welcome to Crossnote 😊
 
 If you want to know more about this project,  
-please download and read the [Welcome notebook](https://crossnote.app/?repo=https%3A%2F%2Fgithub.com%2F0xGG%2Fwelcome-notebook.git&branch=master&filePath=README.md).
+please download and read the [Welcome notebook](https://tttranquilooo.github.io/crossnote/?repo=https%3A%2F%2Fgithub.com%2F0xGG%2Fwelcome-notebook.git&branch=master&filePath=README.md).
 
 `,
         );
