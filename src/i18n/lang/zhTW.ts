@@ -131,7 +131,6 @@ export const zhTW = {
     "general/Configure": "設定",
     "general/Update": "更新",
     "general/empty": "空的",
-    "general/Explore": "探索",
     "general/Notebooks": "筆記本",
     "general/add-a-notebook": "添加一個筆記本",
     "general/add-a-note": "添加一个筆記",

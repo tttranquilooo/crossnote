@@ -131,7 +131,6 @@ export const enUS = {
     "general/Configure": "Configure",
     "general/Update": "Update",
     "general/empty": "empty",
-    "general/Explore": "Explore",
     "general/Notebooks": "Notebooks",
     "general/add-a-notebook": "Add a notebook",
     "general/add-a-note": "Add a note",

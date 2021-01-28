@@ -131,7 +131,6 @@ export const zhCN = {
     "general/Configure": "配置",
     "general/Update": "更新",
     "general/empty": "空的",
-    "general/Explore": "探索",
     "general/Notebooks": "笔记本",
     "general/add-a-notebook": "添加一个笔记本",
     "general/add-a-note": "添加一个笔记",

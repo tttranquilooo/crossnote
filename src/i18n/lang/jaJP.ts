@@ -131,7 +131,6 @@ export const jaJP = {
     "general/Configure": "構成",
     "general/Update": "更新",
     "general/empty": "空",
-    "general/Explore": "探索",
     "general/Notebooks": "ノートブック",
     "general/add-a-notebook": "ノートブックを追加する",
     "general/add-a-note": "ノートを追加する",

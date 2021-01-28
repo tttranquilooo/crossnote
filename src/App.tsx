@@ -48,13 +48,6 @@ const App: FC = () => {
               )}
             ></Route>
             <Route
-              path={`/explore`}
-              exact={true}
-              render={(props) => (
-                <Home section={HomeSection.Explore} queryParams={{}}></Home>
-              )}
-            ></Route>
-            <Route
               path={`/notifications`}
               exact={true}
               render={(props) => (
