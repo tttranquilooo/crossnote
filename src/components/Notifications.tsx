@@ -14,11 +14,9 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import clsx from "clsx";
 import React, { useEffect, useState } from "react";
 import { NotificationsContainer } from "../containers/notifications";
-import { NotificationEventType } from "../generated/graphql";
 import { useTranslation } from "react-i18next";
 import { Close, Menu as MenuIcon } from "mdi-material-ui";
 import { CloudContainer } from "../containers/cloud";
-import { CommentWidgetMessagePostingNotification } from "./notifications/CommentWidgetMessagePostingNotification";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -131,19 +129,6 @@ export function Notifications(props: Props) {
                 );
               }*/
 
-                if (
-                  notification.event!.type ===
-                  NotificationEventType.CommentWidgetMessagePosting
-                ) {
-                  notificationComponent = (
-                    <CommentWidgetMessagePostingNotification
-                      notification={notification}
-                      key={notification.id}
-                    ></CommentWidgetMessagePostingNotification>
-                  );
-                } else {
-                  return null;
-                }
                 return (
                   <React.Fragment key={notification.id}>
                     <ListItem key={notification.id}>

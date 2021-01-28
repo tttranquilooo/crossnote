@@ -12,29 +12,6 @@ fragment NotificationFields on Notification {
     avatar
   }
   meta
-  event {
-    type
-    ... on NotificationEventUserFollowing {
-      type
-    }
-    ... on NotificationEventCommentWidgetMessagePosting {
-      type
-      message {
-        id
-        markdown
-        createdAt
-        widget {
-          owner {
-            id
-            username
-            avatar
-          }
-          description
-          source
-        }
-      }
-    }
-  }
 }
 query Notifications($before: UUID!, $after: UUID!, $first: Int, $last: Int) {
   viewer {

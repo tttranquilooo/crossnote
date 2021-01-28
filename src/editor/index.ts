@@ -36,7 +36,6 @@ import { YoutubeWidgetCreator } from "./widgets/youtube";
 import { OCRWidgetCreator } from "./widgets/ocr";
 import { KanbanWidgetCreator } from "./widgets/kanban";
 // import { ABCWidgetCreator } from "./widgets/abc";
-import { CommentWidgetCreator } from "./widgets/comment";
 import { GitHubGistWidgetCreator } from "./widgets/github_gist";
 
 // Set necessary window scope variables
@@ -53,7 +52,6 @@ registerWidgetCreator("crossnote.youtube", YoutubeWidgetCreator);
 registerWidgetCreator("crossnote.ocr", OCRWidgetCreator);
 registerWidgetCreator("crossnote.kanban", KanbanWidgetCreator);
 // registerWidgetCreator("crossnote.abc", ABCWidgetCreator);
-registerWidgetCreator("crossnote.comment", CommentWidgetCreator);
 registerWidgetCreator("crossnote.github_gist", GitHubGistWidgetCreator);
 
 const packageJSON = require("../../package.json");

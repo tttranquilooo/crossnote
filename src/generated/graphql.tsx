@@ -15,12 +15,6 @@ export interface Scalars {
   Upload: any;
 }
 
-export interface NotificationEventCommentWidgetMessagePosting  extends NotificationEvent {
-   __typename?: 'NotificationEventCommentWidgetMessagePosting';
-  type: NotificationEventType;
-  message: CommentWidgetMessage;
-}
-
 export interface WidgetInstance {
   type: WidgetType;
 }
@@ -31,14 +25,6 @@ export interface AuthReturn {
   token: Scalars['String'];
   /** User */
   user: User;
-}
-
-export interface UnsubscribeFromCommentWidget {
-  widgetID: Scalars['UUID'];
-}
-
-export interface NotificationEvent {
-  type: NotificationEventType;
 }
 
 export interface Widget {
@@ -58,18 +44,8 @@ export interface NotificationConnection {
   edges: Array<NotificationEdge>;
 }
 
-export interface UpdateCommentWidgetMessage {
-  messageID: Scalars['UUID'];
-  markdown: Scalars['String'];
-}
-
 export interface StarNotebook {
   notebookID: Scalars['UUID'];
-}
-
-export enum NotificationEventType {
-  UserFollowing = 'USER_FOLLOWING',
-  CommentWidgetMessagePosting = 'COMMENT_WIDGET_MESSAGE_POSTING'
 }
 
 export interface UserWidget {
@@ -129,41 +105,10 @@ export interface WidgetConnection {
   edges: Array<WidgetEdge>;
 }
 
-export interface CommentWidgetMessageReaction {
-   __typename?: 'CommentWidgetMessageReaction';
-  message: CommentWidgetMessage;
-  user: User;
-  reaction: Scalars['String'];
-}
-
-export interface CommentWidgetMessage {
-   __typename?: 'CommentWidgetMessage';
-  /** Comment message ID */
-  id: Scalars['UUID'];
-  /** The comment widget that this comment belongs to */
-  widget: Widget;
-  /** Author of this comment message */
-  author: User;
-  /** Comment message (markdown content) */
-  markdown: Scalars['String'];
-  /** Created At */
-  createdAt: Scalars['Time'];
-  /** updatedAt at */
-  updatedAt: Scalars['Time'];
-  /** Reaction summaries */
-  reactionSummaries: Array<ReactionSummary>;
-}
-
-
-export interface CommentWidgetMessageReactionSummariesArgs {
-  size?: Maybe<Scalars['Int']>;
-}
-
 export interface Notification {
    __typename?: 'Notification';
   id: Scalars['UUID'];
   createdAt: Scalars['Time'];
-  event: NotificationEvent;
   meta: Scalars['String'];
   receiver: User;
   origin: User;
@@ -185,11 +130,6 @@ export interface UpdateNotebook {
   gitBranch: Scalars['String'];
 }
 
-export interface NotificationEventUserFollowing  extends NotificationEvent {
-   __typename?: 'NotificationEventUserFollowing';
-  type: NotificationEventType;
-}
-
 export interface NotificationEdge {
    __typename?: 'NotificationEdge';
   cursor: Scalars['UUID'];
@@ -209,29 +149,6 @@ export enum NotebookOrderBy {
   MonthlyStarsCount = 'MONTHLY_STARS_COUNT'
 }
 
-export interface CommentWidgetMessageEdge {
-   __typename?: 'CommentWidgetMessageEdge';
-  /** A cursor for use in pagination. */
-  cursor: Scalars['UUID'];
-  /** The item at the end of the edge. */
-  node: CommentWidgetMessage;
-}
-
-export interface CommentWidgetMessageConnection {
-   __typename?: 'CommentWidgetMessageConnection';
-  /** Identifies the total count of items in the connection. */
-  totalCount: Scalars['Int'];
-  /** Information to aid in pagination. */
-  pageInfo: PageInfo;
-  /** A list of edges. */
-  edges: Array<CommentWidgetMessageEdge>;
-}
-
-export interface AddReactionToCommentWidget {
-  widgetID: Scalars['UUID'];
-  reaction: Scalars['String'];
-}
-
 export interface NotebookConnection {
    __typename?: 'NotebookConnection';
   totalCount: Scalars['Int'];
@@ -248,53 +165,6 @@ export interface ReactionSummary {
   count: Scalars['Int'];
   reaction: Scalars['String'];
   selfAuthored: Scalars['Boolean'];
-}
-
-export interface CommentWidget {
-   __typename?: 'CommentWidget';
-  /** Widget ID */
-  id: Scalars['UUID'];
-  /** Widget creation time */
-  createdAt: Scalars['Time'];
-  /** Widget update time */
-  updatedAt: Scalars['Time'];
-  /** Count of messages in this comment widget */
-  messagesCount: Scalars['Int'];
-  /** Count of reactions in this comment widget */
-  reactionsCount: Scalars['Int'];
-  /** Check if the viewer subscribed to the comment widget */
-  subscribed: Scalars['Boolean'];
-  /** Comment messages */
-  messages: CommentWidgetMessageConnection;
-  /** Reaction summaries */
-  reactionSummaries: Array<ReactionSummary>;
-}
-
-
-export interface CommentWidgetMessagesArgs {
-  before?: Maybe<Scalars['UUID']>;
-  after?: Maybe<Scalars['UUID']>;
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
-}
-
-
-export interface CommentWidgetReactionSummariesArgs {
-  size?: Maybe<Scalars['Int']>;
-}
-
-
-export interface SignInInput {
-  /** Email */
-  email: Scalars['String'];
-  /** Password */
-  password: Scalars['String'];
-}
-
-export interface PostCommentWidgetMessage {
-  widgetID: Scalars['UUID'];
-  markdown: Scalars['String'];
-  notifyUsers: Array<Maybe<Scalars['String']>>;
 }
 
 export interface NotebookEdge {
@@ -318,17 +188,6 @@ export interface SignUpInput {
   password: Scalars['String'];
 }
 
-export interface RemoveReactionFromCommentWidgetMessage {
-  messageID: Scalars['UUID'];
-  reaction: Scalars['String'];
-}
-
-export interface CommentWidgetInstance  extends WidgetInstance {
-   __typename?: 'CommentWidgetInstance';
-  type: WidgetType;
-  commentWidget: CommentWidget;
-}
-
 export interface WidgetEdge {
    __typename?: 'WidgetEdge';
   /** A cursor for use in pagination. */
@@ -336,14 +195,6 @@ export interface WidgetEdge {
   /** The item at the end of the edge. */
   node: Widget;
 }
-
-export interface CommentWidgetReaction {
-   __typename?: 'CommentWidgetReaction';
-  widget: Widget;
-  user: User;
-  reaction: Scalars['String'];
-}
-
 export interface Notebook {
    __typename?: 'Notebook';
   id: Scalars['UUID'];
@@ -437,20 +288,6 @@ export interface DeleteWidget {
   id: Scalars['UUID'];
 }
 
-export interface RemoveReactionFromCommentWidget {
-  widgetID: Scalars['UUID'];
-  reaction: Scalars['String'];
-}
-
-export interface AddReactionToCommentWidgetMessage {
-  messageID: Scalars['UUID'];
-  reaction: Scalars['String'];
-}
-
-export interface SubscribeToCommentWidget {
-  widgetID: Scalars['UUID'];
-}
-
 export interface Mutation {
    __typename?: 'Mutation';
   signUp: AuthReturn;
@@ -466,24 +303,11 @@ export interface Mutation {
   createWidget: Widget;
   updateWidget: Scalars['Boolean'];
   deleteWidget: Scalars['Boolean'];
-  postCommentWidgetMessage: CommentWidgetMessage;
-  updateCommentWidgetMessage: CommentWidgetMessage;
-  addReactionToCommentWidget: Scalars['Boolean'];
-  removeReactionFromCommentWidget: Scalars['Boolean'];
-  addReactionToCommentWidgetMessage: Scalars['Boolean'];
-  removeReactionFromCommentWidgetMessage: Scalars['Boolean'];
-  subscribeToCommentWidget: Scalars['Boolean'];
-  unsubscribeFromCommentWidget: Scalars['Boolean'];
 }
 
 
 export interface MutationSignUpArgs {
   input: SignUpInput;
-}
-
-
-export interface MutationSignInArgs {
-  input: SignInInput;
 }
 
 export interface MutationDeleteNotificationArgs {
@@ -524,46 +348,6 @@ export interface MutationDeleteWidgetArgs {
   input: Maybe<DeleteWidget>;
 }
 
-
-export interface MutationPostCommentWidgetMessageArgs {
-  input: PostCommentWidgetMessage;
-}
-
-
-export interface MutationUpdateCommentWidgetMessageArgs {
-  input: UpdateCommentWidgetMessage;
-}
-
-
-export interface MutationAddReactionToCommentWidgetArgs {
-  input: Maybe<AddReactionToCommentWidget>;
-}
-
-
-export interface MutationRemoveReactionFromCommentWidgetArgs {
-  input: Maybe<RemoveReactionFromCommentWidget>;
-}
-
-
-export interface MutationAddReactionToCommentWidgetMessageArgs {
-  input: Maybe<AddReactionToCommentWidgetMessage>;
-}
-
-
-export interface MutationRemoveReactionFromCommentWidgetMessageArgs {
-  input: Maybe<RemoveReactionFromCommentWidgetMessage>;
-}
-
-
-export interface MutationSubscribeToCommentWidgetArgs {
-  input: Maybe<SubscribeToCommentWidget>;
-}
-
-
-export interface MutationUnsubscribeFromCommentWidgetArgs {
-  input: Maybe<UnsubscribeFromCommentWidget>;
-}
-
 export interface UnfollowUser {
   userID: Scalars['UUID'];
 }
@@ -571,113 +355,6 @@ export interface UnfollowUser {
 export interface UnstarNotebook {
   notebookID: Scalars['UUID'];
 }
-
-export type CreateCommentWidgetMutationVariables = {
-  description: Scalars['String'];
-  source: Scalars['String'];
-};
-
-
-export type CreateCommentWidgetMutation = (
-  { __typename?: 'Mutation' }
-  & { createWidget: (
-    { __typename?: 'Widget' }
-    & Pick<Widget, 'id'>
-  ) }
-);
-
-export type PostCommentWidgetMessageMutationVariables = {
-  widgetID: Scalars['UUID'];
-  markdown: Scalars['String'];
-  notifyUsers: Array<Scalars['String']>;
-};
-
-
-export type PostCommentWidgetMessageMutation = (
-  { __typename?: 'Mutation' }
-  & { postCommentWidgetMessage: (
-    { __typename?: 'CommentWidgetMessage' }
-    & CommentWidgetMessageFieldsFragment
-  ) }
-);
-
-export type UpdateCommentWidgetMessageMutationVariables = {
-  messageID: Scalars['UUID'];
-  markdown: Scalars['String'];
-};
-
-
-export type UpdateCommentWidgetMessageMutation = (
-  { __typename?: 'Mutation' }
-  & { updateCommentWidgetMessage: (
-    { __typename?: 'CommentWidgetMessage' }
-    & CommentWidgetMessageFieldsFragment
-  ) }
-);
-
-export type AddReactionToCommentWidgetMutationVariables = {
-  widgetID: Scalars['UUID'];
-  reaction: Scalars['String'];
-};
-
-
-export type AddReactionToCommentWidgetMutation = (
-  { __typename?: 'Mutation' }
-  & Pick<Mutation, 'addReactionToCommentWidget'>
-);
-
-export type RemoveReactionFromCommentWidgetMutationVariables = {
-  widgetID: Scalars['UUID'];
-  reaction: Scalars['String'];
-};
-
-
-export type RemoveReactionFromCommentWidgetMutation = (
-  { __typename?: 'Mutation' }
-  & Pick<Mutation, 'removeReactionFromCommentWidget'>
-);
-
-export type AddReactionToCommentWidgetMessageMutationVariables = {
-  messageID: Scalars['UUID'];
-  reaction: Scalars['String'];
-};
-
-
-export type AddReactionToCommentWidgetMessageMutation = (
-  { __typename?: 'Mutation' }
-  & Pick<Mutation, 'addReactionToCommentWidgetMessage'>
-);
-
-export type RemoveReactionFromCommentWidgetMessageMutationVariables = {
-  messageID: Scalars['UUID'];
-  reaction: Scalars['String'];
-};
-
-
-export type RemoveReactionFromCommentWidgetMessageMutation = (
-  { __typename?: 'Mutation' }
-  & Pick<Mutation, 'removeReactionFromCommentWidgetMessage'>
-);
-
-export type SubscribeToCommentWidgetMutationVariables = {
-  widgetID: Scalars['UUID'];
-};
-
-
-export type SubscribeToCommentWidgetMutation = (
-  { __typename?: 'Mutation' }
-  & Pick<Mutation, 'subscribeToCommentWidget'>
-);
-
-export type UnsubscribeFromCommentWidgetMutationVariables = {
-  widgetID: Scalars['UUID'];
-};
-
-
-export type UnsubscribeFromCommentWidgetMutation = (
-  { __typename?: 'Mutation' }
-  & Pick<Mutation, 'unsubscribeFromCommentWidget'>
-);
 
 export type UpdateNotebookMutationVariables = {
   notebookID: Scalars['UUID'];
@@ -773,96 +450,6 @@ export type UpdateWidgetMutation = (
   & Pick<Mutation, 'updateWidget'>
 );
 
-export type CommentWidgetMessageFieldsFragment = (
-  { __typename?: 'CommentWidgetMessage' }
-  & Pick<CommentWidgetMessage, 'id' | 'markdown' | 'createdAt' | 'updatedAt'>
-  & { author: (
-    { __typename?: 'User' }
-    & Pick<User, 'id' | 'username' | 'avatar'>
-  ), reactionSummaries: Array<(
-    { __typename?: 'ReactionSummary' }
-    & Pick<ReactionSummary, 'count' | 'reaction' | 'selfAuthored'>
-  )> }
-);
-
-export type CommentWidgetMessageConnectionFieldsFragment = (
-  { __typename?: 'CommentWidgetMessageConnection' }
-  & { pageInfo: (
-    { __typename?: 'PageInfo' }
-    & PageInfoFieldsFragment
-  ), edges: Array<(
-    { __typename?: 'CommentWidgetMessageEdge' }
-    & Pick<CommentWidgetMessageEdge, 'cursor'>
-    & { node: (
-      { __typename?: 'CommentWidgetMessage' }
-      & CommentWidgetMessageFieldsFragment
-    ) }
-  )> }
-);
-
-export type CommentWidgetFieldsFragment = (
-  { __typename?: 'Widget' }
-  & Pick<Widget, 'id' | 'description' | 'source' | 'canConfigure'>
-  & { owner: (
-    { __typename?: 'User' }
-    & Pick<User, 'id' | 'username' | 'avatar'>
-  ), instance: (
-    { __typename?: 'CommentWidgetInstance' }
-    & Pick<CommentWidgetInstance, 'type'>
-    & { commentWidget: (
-      { __typename?: 'CommentWidget' }
-      & Pick<CommentWidget, 'id' | 'createdAt' | 'updatedAt' | 'messagesCount' | 'reactionsCount' | 'subscribed'>
-      & { reactionSummaries: Array<(
-        { __typename?: 'ReactionSummary' }
-        & Pick<ReactionSummary, 'count' | 'reaction' | 'selfAuthored'>
-      )>, messages: (
-        { __typename?: 'CommentWidgetMessageConnection' }
-        & CommentWidgetMessageConnectionFieldsFragment
-      ) }
-    ) }
-  ) }
-);
-
-export type CommentWidgetQueryVariables = {
-  widgetID: Scalars['UUID'];
-};
-
-
-export type CommentWidgetQuery = (
-  { __typename?: 'Query' }
-  & { widget: (
-    { __typename?: 'Widget' }
-    & CommentWidgetFieldsFragment
-  ) }
-);
-
-export type CommentWidgetMessagesQueryVariables = {
-  widgetID: Scalars['UUID'];
-  before: Scalars['UUID'];
-  after: Scalars['UUID'];
-  first: Scalars['Int'];
-  last: Scalars['Int'];
-};
-
-
-export type CommentWidgetMessagesQuery = (
-  { __typename?: 'Query' }
-  & { widget: (
-    { __typename?: 'Widget' }
-    & { instance: (
-      { __typename?: 'CommentWidgetInstance' }
-      & Pick<CommentWidgetInstance, 'type'>
-      & { commentWidget: (
-        { __typename?: 'CommentWidget' }
-        & { messages: (
-          { __typename?: 'CommentWidgetMessageConnection' }
-          & CommentWidgetMessageConnectionFieldsFragment
-        ) }
-      ) }
-    ) }
-  ) }
-);
-
 export type NotebookFieldsFragment = (
   { __typename?: 'Notebook' }
   & Pick<Notebook, 'id' | 'createdAt' | 'updatedAt' | 'gitURL' | 'gitBranch' | 'markdown' | 'starsCount' | 'isStarred'>
@@ -888,36 +475,6 @@ export type NotebooksQuery = (
   )> }
 );
 
-export type NotificationFieldsFragment = (
-  { __typename?: 'Notification' }
-  & Pick<Notification, 'id' | 'createdAt' | 'meta'>
-  & { origin: (
-    { __typename?: 'User' }
-    & Pick<User, 'id' | 'username' | 'avatar'>
-  ), receiver: (
-    { __typename?: 'User' }
-    & Pick<User, 'id' | 'username' | 'avatar'>
-  ), event: (
-    { __typename?: 'NotificationEventCommentWidgetMessagePosting' }
-    & Pick<NotificationEventCommentWidgetMessagePosting, 'type'>
-    & { message: (
-      { __typename?: 'CommentWidgetMessage' }
-      & Pick<CommentWidgetMessage, 'id' | 'markdown' | 'createdAt'>
-      & { widget: (
-        { __typename?: 'Widget' }
-        & Pick<Widget, 'description' | 'source'>
-        & { owner: (
-          { __typename?: 'User' }
-          & Pick<User, 'id' | 'username' | 'avatar'>
-        ) }
-      ) }
-    ) }
-  ) | (
-    { __typename?: 'NotificationEventUserFollowing' }
-    & Pick<NotificationEventUserFollowing, 'type'>
-  ) }
-);
-
 export type NotificationsQueryVariables = {
   before: Scalars['UUID'];
   after: Scalars['UUID'];
@@ -940,7 +497,6 @@ export type NotificationsQuery = (
         & Pick<NotificationEdge, 'cursor'>
         & { node: (
           { __typename?: 'Notification' }
-          & NotificationFieldsFragment
         ) }
       )> }
     ) }
@@ -980,74 +536,8 @@ export const PageInfoFieldsFragmentDoc = gql`
   hasPreviousPage
 }
     `;
-export const CommentWidgetMessageFieldsFragmentDoc = gql`
-    fragment CommentWidgetMessageFields on CommentWidgetMessage {
-  id
-  author {
-    id
-    username
-    avatar
-  }
-  markdown
-  createdAt
-  updatedAt
-  reactionSummaries {
-    count
-    reaction
-    selfAuthored
-  }
-}
-    `;
-export const CommentWidgetMessageConnectionFieldsFragmentDoc = gql`
-    fragment CommentWidgetMessageConnectionFields on CommentWidgetMessageConnection {
-  pageInfo {
-    ...PageInfoFields
-  }
-  edges {
-    cursor
-    node {
-      ...CommentWidgetMessageFields
-    }
-  }
-}
-    ${PageInfoFieldsFragmentDoc}
-${CommentWidgetMessageFieldsFragmentDoc}`;
-export const CommentWidgetFieldsFragmentDoc = gql`
-    fragment CommentWidgetFields on Widget {
-  id
-  owner {
-    id
-    username
-    avatar
-  }
-  description
-  source
-  canConfigure
-  instance {
-    type
-    ... on CommentWidgetInstance {
-      type
-      commentWidget {
-        id
-        createdAt
-        updatedAt
-        messagesCount
-        reactionsCount
-        subscribed
-        reactionSummaries {
-          count
-          reaction
-          selfAuthored
-        }
-        messages(first: 20) {
-          ...CommentWidgetMessageConnectionFields
-        }
-      }
-    }
-  }
-}
-    ${CommentWidgetMessageConnectionFieldsFragmentDoc}`;
-export const NotebookFieldsFragmentDoc = gql`
+
+    export const NotebookFieldsFragmentDoc = gql`
     fragment NotebookFields on Notebook {
   id
   createdAt
@@ -1079,29 +569,6 @@ export const NotificationFieldsFragmentDoc = gql`
     avatar
   }
   meta
-  event {
-    type
-    ... on NotificationEventUserFollowing {
-      type
-    }
-    ... on NotificationEventCommentWidgetMessagePosting {
-      type
-      message {
-        id
-        markdown
-        createdAt
-        widget {
-          owner {
-            id
-            username
-            avatar
-          }
-          description
-          source
-        }
-      }
-    }
-  }
 }
     `;
 export const ViewerFieldsFragmentDoc = gql`
@@ -1138,145 +605,7 @@ export const SignUpDocument = gql`
 }
     `;
 
-export const CreateCommentWidgetDocument = gql`
-    mutation CreateCommentWidget($description: String!, $source: String!) {
-  createWidget(input: {description: $description, source: $source, type: COMMENT}) {
-    id
-  }
-}
-    `;
-
-export const CreateCommentWidgetComponent = (props: Omit<Urql.MutationProps<CreateCommentWidgetMutation, CreateCommentWidgetMutationVariables>, 'query'> & { variables?: CreateCommentWidgetMutationVariables }) => (
-  <Urql.Mutation {...props} query={CreateCommentWidgetDocument} />
-);
-
-
-export function useCreateCommentWidgetMutation() {
-  return Urql.useMutation<CreateCommentWidgetMutation, CreateCommentWidgetMutationVariables>(CreateCommentWidgetDocument);
-};
-export const PostCommentWidgetMessageDocument = gql`
-    mutation PostCommentWidgetMessage($widgetID: UUID!, $markdown: String!, $notifyUsers: [String!]!) {
-  postCommentWidgetMessage(input: {widgetID: $widgetID, markdown: $markdown, notifyUsers: $notifyUsers}) {
-    ...CommentWidgetMessageFields
-  }
-}
-    ${CommentWidgetMessageFieldsFragmentDoc}`;
-
-export const PostCommentWidgetMessageComponent = (props: Omit<Urql.MutationProps<PostCommentWidgetMessageMutation, PostCommentWidgetMessageMutationVariables>, 'query'> & { variables?: PostCommentWidgetMessageMutationVariables }) => (
-  <Urql.Mutation {...props} query={PostCommentWidgetMessageDocument} />
-);
-
-
-export function usePostCommentWidgetMessageMutation() {
-  return Urql.useMutation<PostCommentWidgetMessageMutation, PostCommentWidgetMessageMutationVariables>(PostCommentWidgetMessageDocument);
-};
-export const UpdateCommentWidgetMessageDocument = gql`
-    mutation UpdateCommentWidgetMessage($messageID: UUID!, $markdown: String!) {
-  updateCommentWidgetMessage(input: {messageID: $messageID, markdown: $markdown}) {
-    ...CommentWidgetMessageFields
-  }
-}
-    ${CommentWidgetMessageFieldsFragmentDoc}`;
-
-export const UpdateCommentWidgetMessageComponent = (props: Omit<Urql.MutationProps<UpdateCommentWidgetMessageMutation, UpdateCommentWidgetMessageMutationVariables>, 'query'> & { variables?: UpdateCommentWidgetMessageMutationVariables }) => (
-  <Urql.Mutation {...props} query={UpdateCommentWidgetMessageDocument} />
-);
-
-
-export function useUpdateCommentWidgetMessageMutation() {
-  return Urql.useMutation<UpdateCommentWidgetMessageMutation, UpdateCommentWidgetMessageMutationVariables>(UpdateCommentWidgetMessageDocument);
-};
-export const AddReactionToCommentWidgetDocument = gql`
-    mutation AddReactionToCommentWidget($widgetID: UUID!, $reaction: String!) {
-  addReactionToCommentWidget(input: {widgetID: $widgetID, reaction: $reaction})
-}
-    `;
-
-export const AddReactionToCommentWidgetComponent = (props: Omit<Urql.MutationProps<AddReactionToCommentWidgetMutation, AddReactionToCommentWidgetMutationVariables>, 'query'> & { variables?: AddReactionToCommentWidgetMutationVariables }) => (
-  <Urql.Mutation {...props} query={AddReactionToCommentWidgetDocument} />
-);
-
-
-export function useAddReactionToCommentWidgetMutation() {
-  return Urql.useMutation<AddReactionToCommentWidgetMutation, AddReactionToCommentWidgetMutationVariables>(AddReactionToCommentWidgetDocument);
-};
-export const RemoveReactionFromCommentWidgetDocument = gql`
-    mutation RemoveReactionFromCommentWidget($widgetID: UUID!, $reaction: String!) {
-  removeReactionFromCommentWidget(input: {widgetID: $widgetID, reaction: $reaction})
-}
-    `;
-
-export const RemoveReactionFromCommentWidgetComponent = (props: Omit<Urql.MutationProps<RemoveReactionFromCommentWidgetMutation, RemoveReactionFromCommentWidgetMutationVariables>, 'query'> & { variables?: RemoveReactionFromCommentWidgetMutationVariables }) => (
-  <Urql.Mutation {...props} query={RemoveReactionFromCommentWidgetDocument} />
-);
-
-
-export function useRemoveReactionFromCommentWidgetMutation() {
-  return Urql.useMutation<RemoveReactionFromCommentWidgetMutation, RemoveReactionFromCommentWidgetMutationVariables>(RemoveReactionFromCommentWidgetDocument);
-};
-export const AddReactionToCommentWidgetMessageDocument = gql`
-    mutation AddReactionToCommentWidgetMessage($messageID: UUID!, $reaction: String!) {
-  addReactionToCommentWidgetMessage(input: {messageID: $messageID, reaction: $reaction})
-}
-    `;
-
-export const AddReactionToCommentWidgetMessageComponent = (props: Omit<Urql.MutationProps<AddReactionToCommentWidgetMessageMutation, AddReactionToCommentWidgetMessageMutationVariables>, 'query'> & { variables?: AddReactionToCommentWidgetMessageMutationVariables }) => (
-  <Urql.Mutation {...props} query={AddReactionToCommentWidgetMessageDocument} />
-);
-
-
-export function useAddReactionToCommentWidgetMessageMutation() {
-  return Urql.useMutation<AddReactionToCommentWidgetMessageMutation, AddReactionToCommentWidgetMessageMutationVariables>(AddReactionToCommentWidgetMessageDocument);
-};
-export const RemoveReactionFromCommentWidgetMessageDocument = gql`
-    mutation RemoveReactionFromCommentWidgetMessage($messageID: UUID!, $reaction: String!) {
-  removeReactionFromCommentWidgetMessage(input: {messageID: $messageID, reaction: $reaction})
-}
-    `;
-
-export const RemoveReactionFromCommentWidgetMessageComponent = (props: Omit<Urql.MutationProps<RemoveReactionFromCommentWidgetMessageMutation, RemoveReactionFromCommentWidgetMessageMutationVariables>, 'query'> & { variables?: RemoveReactionFromCommentWidgetMessageMutationVariables }) => (
-  <Urql.Mutation {...props} query={RemoveReactionFromCommentWidgetMessageDocument} />
-);
-
-
-export function useRemoveReactionFromCommentWidgetMessageMutation() {
-  return Urql.useMutation<RemoveReactionFromCommentWidgetMessageMutation, RemoveReactionFromCommentWidgetMessageMutationVariables>(RemoveReactionFromCommentWidgetMessageDocument);
-};
-export const SubscribeToCommentWidgetDocument = gql`
-    mutation SubscribeToCommentWidget($widgetID: UUID!) {
-  subscribeToCommentWidget(input: {widgetID: $widgetID})
-}
-    `;
-
-export const SubscribeToCommentWidgetComponent = (props: Omit<Urql.MutationProps<SubscribeToCommentWidgetMutation, SubscribeToCommentWidgetMutationVariables>, 'query'> & { variables?: SubscribeToCommentWidgetMutationVariables }) => (
-  <Urql.Mutation {...props} query={SubscribeToCommentWidgetDocument} />
-);
-
-
-export function useSubscribeToCommentWidgetMutation() {
-  return Urql.useMutation<SubscribeToCommentWidgetMutation, SubscribeToCommentWidgetMutationVariables>(SubscribeToCommentWidgetDocument);
-};
-export const UnsubscribeFromCommentWidgetDocument = gql`
-    mutation UnsubscribeFromCommentWidget($widgetID: UUID!) {
-  unsubscribeFromCommentWidget(input: {widgetID: $widgetID})
-}
-    `;
-
-export const UnsubscribeFromCommentWidgetComponent = (props: Omit<Urql.MutationProps<UnsubscribeFromCommentWidgetMutation, UnsubscribeFromCommentWidgetMutationVariables>, 'query'> & { variables?: UnsubscribeFromCommentWidgetMutationVariables }) => (
-  <Urql.Mutation {...props} query={UnsubscribeFromCommentWidgetDocument} />
-);
-
-
-export function useUnsubscribeFromCommentWidgetMutation() {
-  return Urql.useMutation<UnsubscribeFromCommentWidgetMutation, UnsubscribeFromCommentWidgetMutationVariables>(UnsubscribeFromCommentWidgetDocument);
-};
-export const LinkWithGitHubAccountDocument = gql`
-    mutation LinkWithGitHubAccount($code: String!) {
-  linkWithGitHubAccount(input: {code: $code})
-}
-    `;
-
-export const UpdateNotebookDocument = gql`
+    export const UpdateNotebookDocument = gql`
     mutation UpdateNotebook($notebookID: UUID!, $gitURL: String!, $gitBranch: String!) {
   updateNotebook(input: {notebookID: $notebookID, gitURL: $gitURL, gitBranch: $gitBranch}) {
     ...NotebookFields
@@ -1392,59 +721,6 @@ export const UpdateWidgetComponent = (props: Omit<Urql.MutationProps<UpdateWidge
 export function useUpdateWidgetMutation() {
   return Urql.useMutation<UpdateWidgetMutation, UpdateWidgetMutationVariables>(UpdateWidgetDocument);
 };
-export const CommentWidgetDocument = gql`
-    query CommentWidget($widgetID: UUID!) {
-  widget(id: $widgetID) {
-    ...CommentWidgetFields
-  }
-}
-    ${CommentWidgetFieldsFragmentDoc}`;
-
-export const CommentWidgetComponent = (props: Omit<Urql.QueryProps<CommentWidgetQuery, CommentWidgetQueryVariables>, 'query'> & { variables: CommentWidgetQueryVariables }) => (
-  <Urql.Query {...props} query={CommentWidgetDocument} />
-);
-
-
-export function useCommentWidgetQuery(options: Omit<Urql.UseQueryArgs<CommentWidgetQueryVariables>, 'query'> = {}) {
-  return Urql.useQuery<CommentWidgetQuery>({ query: CommentWidgetDocument, ...options });
-};
-export const CommentWidgetMessagesDocument = gql`
-    query CommentWidgetMessages($widgetID: UUID!, $before: UUID!, $after: UUID!, $first: Int!, $last: Int!) {
-  widget(id: $widgetID) {
-    instance {
-      type
-      ... on CommentWidgetInstance {
-        type
-        commentWidget {
-          messages(before: $before, after: $after, first: $first, last: $last) {
-            ...CommentWidgetMessageConnectionFields
-          }
-        }
-      }
-    }
-  }
-}
-    ${CommentWidgetMessageConnectionFieldsFragmentDoc}`;
-
-export const CommentWidgetMessagesComponent = (props: Omit<Urql.QueryProps<CommentWidgetMessagesQuery, CommentWidgetMessagesQueryVariables>, 'query'> & { variables: CommentWidgetMessagesQueryVariables }) => (
-  <Urql.Query {...props} query={CommentWidgetMessagesDocument} />
-);
-
-
-export function useCommentWidgetMessagesQuery(options: Omit<Urql.UseQueryArgs<CommentWidgetMessagesQueryVariables>, 'query'> = {}) {
-  return Urql.useQuery<CommentWidgetMessagesQuery>({ query: CommentWidgetMessagesDocument, ...options });
-};
-export const GitHubUserDocument = gql`
-    query GitHubUser {
-  viewer {
-    githubUser {
-      login
-      avatar
-      email
-    }
-  }
-}
-    `;
 
 export const NotebooksDocument = gql`
     query Notebooks($query: String = "", $orderBy: NotebookOrderBy = TOTAL_STARS_COUNT, $page: Int = 0, $perPage: Int = 10) {

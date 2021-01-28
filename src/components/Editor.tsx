@@ -1062,13 +1062,6 @@ export default function Editor(props: Props) {
                   icon: "mdi-github",
                   render,
                 },
-                {
-                  text: "<!-- @crossnote.comment -->  \n",
-                  command: "/crossnote.comment",
-                  description: t("editor/toolbar/insert-comment"),
-                  icon: "mdi-comment-multiple",
-                  render,
-                },
               ];
               const filtered = commands.filter(
                 (item) =>
