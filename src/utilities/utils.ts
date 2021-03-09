@@ -14,7 +14,7 @@ export const OneDay = 1000 * 60 * 60 * 24;
 
 export function getGraphQLEndpoint() {
   if (process.env.NODE_ENV === "production") {
-    return `https://tttranquilooo.github.io/crossnote/api/graphql`;
+    return `https://tranquilo-crossnote.vercel.app/api/graphql`;
   } else {
     return `http://${window.location.hostname}:9999/graphql`;
   }
