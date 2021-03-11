@@ -36,7 +36,7 @@ export default function ConfigureNotebookDialog(props: Props) {
   const [gitUsername, setGitUsername] = useState<string>("");
   const [gitPassword, setGitPassword] = useState<string>("");
   const [gitCorsProxy, setGitCorsProxy] = useState<string>(
-    "https://cors-proxy.us-south.cf.appdomain.cloud",
+    "http://127.0.0.1:9999",
   );
   const [autoFetchPeriod, setAutoFetchPeriod] = useState<number>(0);
   const [clickDeleteCount, setClickDeleteCount] = useState<number>(
@@ -182,7 +182,7 @@ export default function ConfigureNotebookDialog(props: Props) {
               ></TextField>
               <TextField
                 label={t("general/cors-proxy")}
-                placeholder={"https://cors-proxy.us-south.cf.appdomain.cloud"}
+                placeholder={"http://127.0.0.1:9999"}
                 fullWidth={true}
                 value={gitCorsProxy}
                 onChange={(event) => setGitCorsProxy(event.target.value)}
