@@ -142,5 +142,5 @@
     "react-app-rewired": "^2.1.5",
     "workbox-build": "^5.1.2"
   },
-  "homepage": "https://crossnote.app"
+  "homepage": "https://crossnote-tanquilo.vercel.app"
 }

@@ -399,7 +399,7 @@ export function Settings(props: Props) {
       <Box className={clsx(classes.section)} style={{ marginTop: "32px" }}>
         <Link
           href={
-            "https://tranquilo-crossnote.vercel.app/?repo=https%3A%2F%2Fgithub.com%2F0xGG%2Fwelcome-notebook.git&branch=master&filePath=README.md"
+            "https://crossnote-tranquilo.vercel.app/?repo=https%3A%2F%2Fgithub.com%2F0xGG%2Fwelcome-notebook.git&branch=master&filePath=README.md"
           }
           target={"_blank"}
         >

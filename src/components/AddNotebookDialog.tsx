@@ -39,7 +39,7 @@ export default function AddNotebookDialog(props: Props) {
   const [gitUsername, setGitUsername] = useState<string>("");
   const [gitPassword, setGitPassword] = useState<string>("");
   const [gitCorsProxy, setGitCorsProxy] = useState<string>(
-    "http://127.0.0.1:9999",
+    "https://crossnote.app/cors/",
   );
   const [rememberCredentialsChecked, setRememberCredentialsChecked] = useState<
     boolean
@@ -200,7 +200,7 @@ export default function AddNotebookDialog(props: Props) {
               />
               <TextField
                 label={t("general/cors-proxy")}
-                placeholder={"http://127.0.0.1:9999"}
+                placeholder={"https://crossnote.app/cors/"}
                 fullWidth={true}
                 value={gitCorsProxy}
                 onChange={(event) => setGitCorsProxy(event.target.value)}

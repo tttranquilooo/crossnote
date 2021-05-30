@@ -802,13 +802,13 @@ function useCrossnoteContainer(initialState: InitialState) {
       } else {
         /*
         notebook = await crossnote.cloneNotebook({
-          corsProxy: "http://127.0.0.1:9999",
+          corsProxy: "https://crossnote.app/cors/",
           gitURL: "https://github.com/0xGG/crossnote-doc.git"
         });
         */
         notebook = await crossnote.addNotebook({
           name: "Drafts",
-          corsProxy: "http://127.0.0.1:9999",
+          corsProxy: "https://crossnote.app/cors/",
           gitURL: "",
         });
         await pfs.writeFile(
@@ -816,7 +816,7 @@ function useCrossnoteContainer(initialState: InitialState) {
           `# Welcome to Crossnote 😊
 
 If you want to know more about this project,  
-please download and read the [Welcome notebook](https://tranquilo-crossnote.vercel.app/?repo=https%3A%2F%2Fgithub.com%2F0xGG%2Fwelcome-notebook.git&branch=master&filePath=README.md).
+please download and read the [Welcome notebook](https://crossnote-tranquilo.vercel.app/?repo=https%3A%2F%2Fgithub.com%2F0xGG%2Fwelcome-notebook.git&branch=master&filePath=README.md).
 
 `,
         );
